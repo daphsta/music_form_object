@@ -1,0 +1,17 @@
+
+.row
+	.large-6.columns
+		.h2 Music 
+		%table
+			%thead
+				%tr
+					%th Album name
+					%th Artist
+				%tr
+				- @albums.each do |album|
+					%td Album name
+
+		.large-offset-1
+			
+			= link_to 'Create Music', new_music_path, :class => "button"
+					
