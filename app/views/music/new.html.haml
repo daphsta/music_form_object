@@ -1,7 +1,13 @@
-.small-block-grid-5
-	%form
-		.row
-			.large-6.columns
-				%label Album name
-				= form_for @music do |f|
-					= f.text
+.panel.offset-large-6.columns
+  .h2 Create Playlist
+%form
+  .row
+    .large-6.columns
+      = form_for :music_form, url: new_music_path, html: {class: 'form-inline', role:'form'} do |f|
+        %label
+        = f.label :album_name
+        = f.text_field :album_name
+
+        = f.fields_for :songs do |song|
+          = song.label :title
+          = song.text_field :title

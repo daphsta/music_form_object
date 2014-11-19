@@ -1,6 +1,6 @@
 class MusicController < ApplicationController
 	def show
-		@albums = Album.all
+		@albums = Album.all || []
 		render 'music/index'
 	end
 	def new

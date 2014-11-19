@@ -1,17 +1,18 @@
 
 .row
 	.large-6.columns
-		.h2 Music 
+		.h2 Playlist
 		%table
 			%thead
 				%tr
 					%th Album name
 					%th Artist
 				%tr
-				- @albums.each do |album|
-					%td Album name
+				- unless @albums.nil?
+					- @albums.each do |album|
+						%td Album name
 
 		.large-offset-1
 			
-			= link_to 'Create Music', new_music_path, :class => "button"
+			= link_to 'Create New Playlist', new_music_path, :class => "button"
 					
