@@ -1,7 +1,7 @@
 require 'song_form'
 require 'artist_form'
 
-class MusicForm
+class PlaylistForm
 	include Virtus.model
 	include ActiveModel::Validations
 
@@ -11,8 +11,15 @@ class MusicForm
 
 	validates_presence_of :album_name,:song,:artist_name
 
+  def songs_attributes=(attributes)
+    songs.attributes = attributes
+  end
 
-	def persisted?
+  def artist_name_attributes=(attributes)
+    artist_name.attributes = attributes
+  end
+
+  def persisted?
 		false
 	end
 

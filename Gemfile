@@ -22,6 +22,8 @@ gem 'virtus'
 gem 'haml-rails'
 
 gem 'foundation-rails'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
