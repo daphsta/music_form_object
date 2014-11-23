@@ -15,6 +15,6 @@
 
       = f.fields_for :songs  do |song|
         = song.label :song_title
-        = song.text_field :title
+        = text_field_tag "playlistform[songs][][title]"
 
       = f.submit 'Create Playlist', class: 'button medium'

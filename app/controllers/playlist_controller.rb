@@ -9,7 +9,6 @@ class PlaylistController < ApplicationController
 	
 	def create
 		playlist = params[:playlistform]
-		playlist[:songs] = [playlist[:songs]]
 
     playlistform = PlaylistForm.new(playlist)
       if playlistform.save
