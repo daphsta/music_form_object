@@ -1,14 +1,18 @@
 class PlaylistController < ApplicationController
-	def show
-		@albums = Album.all || []
-	end
-	def new
-	end
 
+	def index
+		@albums = Album.all
+		@artists = Artist.all
+		@playlist = @albums.merge(@artists)
+		ap @playlist
+	end
+	
 	def create
-    @playlist = PlaylistForm.new(params[:playlist_form])
+		playlist = params[:playlistform]
+		playlist[:songs] = [playlist[:songs]]
 
-      if @playlist.save
+    playlistform = PlaylistForm.new(playlist)
+      if playlistform.save
         redirect_to root_path
       else
         render :new

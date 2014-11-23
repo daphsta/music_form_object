@@ -25,6 +25,7 @@ gem 'foundation-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'awesome_print'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

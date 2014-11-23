@@ -1,18 +1,22 @@
-
 .row
-	.large-6.columns
-		.h2 Playlist
+	.large-block-grid-5
+		.small-block-grid-4
+			.h1 Playlists
+		%br
 		%table
 			%thead
 				%tr
 					%th Album name
 					%th Artist
-				%tr
-				- unless @albums.nil?
-					- @albums.each do |album|
-						%td Album name
+			- unless @albums.nil?
+				- @albums.each do |album|
+					%tr
+						%td 
+							= album.name
+						%td
+							= album.artist.first_name
+							= album.artist.last_name
 
-		.large-offset-1
 			
-			= link_to 'Create New Playlist', new_playlist_path, :class => "button"
+		= link_to 'Add Songs', new_playlist_path, :class => "button medium"
 					

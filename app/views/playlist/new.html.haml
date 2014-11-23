@@ -2,7 +2,7 @@
   .h2 Create Playlist
 .row
   .large-6.columns
-    = form_for :playlist_form, url: playlist_index_path, method: :post, html: {class: 'form-inline', role:'form'} do |f|
+    = form_for :playlistform, url: {action: 'create'}, html: {class: 'form-inline', role:'form'} do |f|
       = f.label :album_name
       = f.text_field :album_name
 
@@ -13,8 +13,8 @@
         = artist.label :artist_last_name
         = artist.text_field :last_name
 
-      = f.fields_for :songs do |song|
+      = f.fields_for :songs  do |song|
         = song.label :song_title
         = song.text_field :title
 
-      = f.submit 'Create Playlist', class: 'button tiny'
+      = f.submit 'Create Playlist', class: 'button medium'

@@ -7,17 +7,10 @@ class PlaylistForm
 
 	attribute :album_name, String
 	attribute :songs, Array[SongForm]
-	attribute :artist_name, Artist
+	attribute :artist_name, ArtistForm
 
-	validates_presence_of :album_name,:song,:artist_name
+	validates_presence_of :album_name,:songs,:artist_name
 
-  def songs_attributes=(attributes)
-    songs.attributes = attributes
-  end
-
-  def artist_name_attributes=(attributes)
-    artist_name.attributes = attributes
-  end
 
   def persisted?
 		false
@@ -26,6 +19,7 @@ class PlaylistForm
 	def save
 		if valid?
 			persist!
+			true
 		else
 			false
 		end
@@ -34,7 +28,6 @@ class PlaylistForm
 	def persist!
 		artist = Artist.create!(first_name: artist_name.first_name, last_name: artist_name.last_name)
 		album  = Album.create!(name: album_name, artist_id: artist.id)
-		song 	 = songs.each { |song| Song.create!(song) }
-
+		song 	 = songs.each { |song| Song.create!(title: song.title, album_id: album.id) }
 	end
 end
