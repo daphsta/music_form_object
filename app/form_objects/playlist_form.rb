@@ -12,9 +12,9 @@ class PlaylistForm
 	validates_presence_of :album_name,:songs,:artist_name
 
 
-  def persisted?
-		false
-	end
+ #  def persisted?
+	# 	false
+	# end
 
 	def save
 		if valid?

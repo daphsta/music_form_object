@@ -2,9 +2,6 @@ class PlaylistController < ApplicationController
 
 	def index
 		@albums = Album.all
-		@artists = Artist.all
-		@playlist = @albums.merge(@artists)
-		ap @playlist
 	end
 	
 	def create
